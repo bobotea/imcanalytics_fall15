@@ -142,16 +142,40 @@ while($row = mysqli_fetch_array($search3)) {
 <p>
 
 
+<?php
+$sql = "SELECT * FROM Customer WHERE PurchNum > 2";
+$search4 = mysqli_query($con,$sql);
+$o = 0;
+
+$arraylist = array();
+
+?>
+
 <table class="display" cellspacing="0" width="100%">
     <thead  style="background-color: #848482; color: #ffffff;" >
-		<tr>
-		  <th>Last Name</th>
-		  <th>Number of Purchases</th>
-		</tr> 
-    </thead>	
+    <tr>
+      <th>Last Name</th>
+      <th>Number of Purchases</th>
+    </tr> 
+    </thead>  
 
  <?php
 //STUDENT COMMENT: 
+$sql = "SELECT * FROM Customer WHERE PurchNum > 2";
+$search4 = mysqli_query($con,$sql);
+$o = 0;
+
+$arraylist = array();
+while($row = mysqli_fetch_array($search4)) {
+ echo '<tr>';
+
+  echo '<td>' . $row['Last'] . '</td>';
+  echo '<td>' . $row['PurchNum'] . '</td>';
+
+ echo '</tr>';
+ $o++;
+ } 
+
 //$search4 = 
 //while($row = mysqli_fetch_array($search4)) {
 // echo '<tr>';
@@ -162,9 +186,17 @@ while($row = mysqli_fetch_array($search3)) {
 // echo '</tr>';
 // $o++;
 // } 
-//?>
+//
+?>
  
 </table>
+
+
+
+
+
+
+
 
 <p>
 <strong>JOIN ASSIGNMENT - TITLE OF LATEST ITEM ADDED</strong>
