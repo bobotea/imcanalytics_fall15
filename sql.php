@@ -161,6 +161,8 @@ $arraylist = array();
 
  <?php
 //STUDENT COMMENT: The only part I don't quite understand is $arraylist = array();
+// why should we use it? Does it have something to do with putting number line by line?
+// I am not sure how could it do that
 
 while($row = mysqli_fetch_array($search4)) {
  echo '<tr>';
@@ -172,17 +174,7 @@ while($row = mysqli_fetch_array($search4)) {
  $o++;
  } 
 
-//$search4 = 
-//while($row = mysqli_fetch_array($search4)) {
-// echo '<tr>';
 
-//  echo '<td>' . $row['xx'] . '</td>';
-//  echo '<td>' . $row['xx'] . '</td>';
-
-// echo '</tr>';
-// $o++;
-// } 
-//
 ?>
  
 </table>
@@ -220,7 +212,9 @@ $arraylist = array();
     </thead>	
 
  <?php
- //STUDENT COMMENT: 
+ //STUDENT COMMENT: for this assignment, I know 'bookdetails' is the name of book details' dataset
+ //but how could I extract the name of the table without such a well-prepared Data Dictionary
+
 
 while($row = mysqli_fetch_array($search5)) {
  echo '<tr>';
@@ -248,7 +242,6 @@ while($row = mysqli_fetch_array($search5)) {
 <p>
 
  <?php
-//STUDENT COMMENT: 
 
 $search6 = mysqli_query($con,"SELECT * FROM `Customer`");
 $o = 0;
@@ -258,7 +251,7 @@ $arraylist = array();
 
  <?php
 while($row = mysqli_fetch_array($search6)) {
-//STUDENT COMMENT:
+
   $arraylist[$o][First] = $row['First'];
   $arraylist[$o][Last] = $row['Last'];
   $arraylist[$o][Cust_id] = $row['Cust_id'];
@@ -283,11 +276,13 @@ mysqli_close($con);
 
   echo "<pre>";
   
-//STUDENT COMMENT:
+//STUDENT COMMENT: no comment
   print_r($arraylist);
   
 //STUDENT QUESTION - WHY/WHEN USE ARRAY INSTEAD OF TABLE?:  
-
+// I think whithout printing out the array, we can save the data into the memory
+// so when the next time we want to use them, we can call it out without connecting
+// to the sql server again.
 ?>
 
 </body>
