@@ -160,12 +160,8 @@ $arraylist = array();
     </thead>  
 
  <?php
-//STUDENT COMMENT: 
-$sql = "SELECT * FROM Customer WHERE PurchNum > 2";
-$search4 = mysqli_query($con,$sql);
-$o = 0;
+//STUDENT COMMENT: The only part I don't quite understand is $arraylist = array();
 
-$arraylist = array();
 while($row = mysqli_fetch_array($search4)) {
  echo '<tr>';
 
