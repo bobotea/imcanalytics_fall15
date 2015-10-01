@@ -202,27 +202,41 @@ while($row = mysqli_fetch_array($search4)) {
 <strong>JOIN ASSIGNMENT - TITLE OF LATEST ITEM ADDED</strong>
 <p>
 
+
+<?php
+$sql = "SELECT Customer.First, Customer.Last, Bookdetails.Title FROM Customer INNER JOIN Bookdetails ON Customer.LastCart = Bookdetails.bid";
+$search5 = mysqli_query($con,$sql);
+$o = 0;
+
+$arraylist = array();
+
+?>
+
+
+
 <table class="display" cellspacing="0" width="100%">
     <thead  style="background-color: #848482; color: #ffffff;" >
 		<tr>
-		  <th>Last Name</th>
+		  <th>First Name</th>
+      <th>Last Name</th>
 		  <th>Last Title Added</th>
 		</tr> 
     </thead>	
 
  <?php
  //STUDENT COMMENT: 
-//$search5 = 
- 
-//while($row = mysqli_fetch_array($search5)) {
-// echo '<tr>';
+<?php
 
-// echo '<td>' . $row['xx'] . '</td>';
-//  echo '<td>' . $row['xx'] . '</td>';
+while($row = mysqli_fetch_array($search3)) {
+ echo '<tr>';
 
-// echo '</tr>';
-//$o++;
-// } 
+  echo '<td>' . $row['First'] . '</td>';
+  echo '<td>' . $row['Last'] . '</td>';
+  echo '<td>' . $row['Title'] . '</td>';
+
+ echo '</tr>';
+ $o++;
+ } 
 // ?>
  
 </table>
