@@ -225,7 +225,6 @@ $arraylist = array();
 
  <?php
  //STUDENT COMMENT: 
-<?php
 
 while($row = mysqli_fetch_array($search3)) {
  echo '<tr>';
