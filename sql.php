@@ -240,6 +240,13 @@ while($row = mysqli_fetch_array($search5)) {
  
 </table>
 
+
+
+
+
+
+
+
 <p>
 <strong>ARRAY ASSIGNMENT</strong>
 <p>
@@ -247,22 +254,29 @@ while($row = mysqli_fetch_array($search5)) {
  <?php
 //STUDENT COMMENT: 
 
-//while($row = mysqli_fetch_array($search6)) {
-//STUDENT COMMENT:
-//  $arraylist[$o][First] = $row['First'];
-//  $arraylist[$o][Last] = $row['Last'];
-//  $arraylist[$o][Cust_id] = $row['Cust_id'];
-//  $arraylist[$o][VisitDays] = $row['VisitDays'];
-//  $arraylist[$o][Pref] = $row['Pref'];
-//  $arraylist[$o][PurchNum] = $row['PurchNum'];
-//  $arraylist[$o][PurchTot] = $row['PurchTot'];
-//  $arraylist[$o][PurchDays] = $row['PurchDays'];
-//  $arraylist[$o][CartItems] = $row['CartItems'];
-//  $arraylist[$o][LastCart] = $row['LastCart'];
+$search6 = mysqli_query($con,"SELECT * FROM `Customer`");
+$o = 0;
 
-// $o++;
-// } 
-// ?>
+$arraylist = array();
+?>
+
+ <?php
+while($row = mysqli_fetch_array($search6)) {
+//STUDENT COMMENT:
+  $arraylist[$o][First] = $row['First'];
+  $arraylist[$o][Last] = $row['Last'];
+  $arraylist[$o][Cust_id] = $row['Cust_id'];
+  $arraylist[$o][VisitDays] = $row['VisitDays'];
+  $arraylist[$o][Pref] = $row['Pref'];
+  $arraylist[$o][PurchNum] = $row['PurchNum'];
+  $arraylist[$o][PurchTot] = $row['PurchTot'];
+  $arraylist[$o][PurchDays] = $row['PurchDays'];
+  $arraylist[$o][CartItems] = $row['CartItems'];
+  $arraylist[$o][LastCart] = $row['LastCart'];
+
+  $o++;
+  } 
+  ?>
  
 </table>
 
