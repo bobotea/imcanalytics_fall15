@@ -226,7 +226,7 @@ $arraylist = array();
  <?php
  //STUDENT COMMENT: 
 
-while($row = mysqli_fetch_array($search3)) {
+while($row = mysqli_fetch_array($search5)) {
  echo '<tr>';
 
   echo '<td>' . $row['First'] . '</td>';
