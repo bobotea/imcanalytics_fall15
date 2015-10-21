@@ -29,7 +29,7 @@ if (mysqli_connect_errno()) {
 	//MIDTERM ADDITIONS - LOGIC TO SET BOOKS
 	      $search2 = mysqli_query($con,"SELECT * FROM `Bookdetails` WHERE CatID = '". $PREF ."'");
 		  if($LATEST != 0) {
-		   $n=2;
+		   $n=2; // n=2 means Lastcart has something
 		   $search3 = mysqli_query($con,"SELECT * FROM `Bookdetails` WHERE bid = '". $LATEST ."'");
 	       $BOOKID1=$LATEST;
 		   while($row = mysqli_fetch_array($search3)) {
@@ -39,7 +39,7 @@ if (mysqli_connect_errno()) {
 		   ${"BOOKDESC1"} = $row[Description];
 		   ${"BOOKPRICE1"} = $row[Price];
 		   }
-		  } else 
+		  } else //if $latest =0--> lastcart doesn't have anything
 		  { $n=1; 
 		  }
 		  while($row = mysqli_fetch_array($search2)) {
