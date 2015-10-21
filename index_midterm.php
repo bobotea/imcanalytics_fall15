@@ -43,7 +43,7 @@ if (mysqli_connect_errno()) {
 		  { $n=1; 
 		  }
 		  while($row = mysqli_fetch_array($search2)) {
-		  if($row[bid] != $LATEST){
+		  if($row[bid] != $LATEST){  // if the bid is not included in the latest, don't want to show it twice
 	       ${"BOOKID$n"} = $row[bid];
 		   ${"BOOKPIC$n"} = $row[Image];
 		   ${"BOOKTITLE$n"} = $row[Title];
@@ -53,7 +53,7 @@ if (mysqli_connect_errno()) {
 		   $n++;
 		   }
 		    }
-		   } else {
+		   } else { // I have the latest book
 		    $n=1;
 		    $search4 = mysqli_query($con,"SELECT * FROM `Bookdetails` WHERE bid in (100,200,300,400)");
            while($row = mysqli_fetch_array($search4)) {
@@ -197,15 +197,21 @@ if (mysqli_connect_errno()) {
 		 $("#deetcta").text('Purchase'); }
 		}
 		else if(bid == '2'){
-		$("#showbookdeets").html("Vacuum<p>$9.99"); 
+		var bookname = $( "#book2" ).val();
+		var bookprice = $( "#book2price" ).val();
+		$("#showbookdeets").html(bookname + "<p>" + bookprice);
 		$("#bookshelf").val('2'); 
 		}
 			else if(bid == '3'){
-		$("#showbookdeets").html("Teeth<p>$14.99"); 
+		var bookname = $( "#book3" ).val();
+		var bookprice = $( "#book3price" ).val();
+		$("#showbookdeets").html(bookname + "<p>" + bookprice);
 		$("#bookshelf").val('3'); 
 		}
 			else if(bid == '4'){
-		$("#showbookdeets").html("August<p>$12.99"); 
+		var bookname = $( "#book4" ).val();
+		var bookprice = $( "#book4price" ).val();
+		$("#showbookdeets").html(bookname + "<p>" + bookprice);
 		$("#bookshelf").val('4'); 
 		}
 		$('#bookdeets').popup('show');
